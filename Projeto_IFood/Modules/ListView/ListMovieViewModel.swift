@@ -38,13 +38,13 @@ extension ListMovieViewModel: ListMovieViewModelType {
             guard let self = self else { return }
             switch result {
             case .success(let listMovies):
-//                self.listMovies = listMovies.sorted(by: { $0.code < $1.code })
+                self.listMovies = listMovies.sorted(by: { $0.title < $1.title })
                 self.listMovies = listMovies
-//                if searchText != "" {
-//                    self.listMovies = self.listMovies?.filter { quote in
-//                        return (quote.code.uppercased().contains(searchText.uppercased()) || quote.description.uppercased().contains(searchText.uppercased()))
-//                    }
-//                }
+                if searchText != "" {
+                    self.listMovies = self.listMovies?.filter { movie in
+                        return (movie.title.uppercased().contains(searchText.uppercased()))
+                    }
+                }
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.output?.reloadDisplayData()

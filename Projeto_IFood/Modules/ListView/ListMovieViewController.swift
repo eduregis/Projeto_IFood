@@ -73,9 +73,9 @@ extension ListMovieViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
         self.actualSearchText = searchText
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             if self.actualSearchText == searchText {
-                self.viewModel.fetchMovies(searchText: "")
+                self.viewModel.fetchMovies(searchText: searchText)
             }
         }
     }
