@@ -15,7 +15,7 @@ protocol ListMovieViewModelType {
     func fetchMovies(searchText: String)
     func numberOfRows() -> Int
     func cellText(index: Int) -> String
-    func generateCell(for tableView: UITableView, indexPath: IndexPath, movieCellDelegate: MovieCellDelegate) -> UITableViewCell
+    func generateCell(for tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
 }
 
 // Nesse protocolo Output vão as chamadas dos métodos da viewController a serem chamados pela viewModel.
@@ -62,10 +62,10 @@ extension ListMovieViewModel: ListMovieViewModelType {
     }
     
     func generateCell(for tableView: UITableView,
-                      indexPath: IndexPath,
-                      movieCellDelegate: MovieCellDelegate) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.IDENTIFIER) as? MovieCell else { return UITableViewCell() }
-        cell.delegate = movieCellDelegate
+                      indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.IDENTIFIER) as? MovieCell else {
+            return UITableViewCell()
+        }
         let viewModel = MovieCellViewModel()
         viewModel.create(model: MovieCellModel(title: "\(self.listMovies![indexPath.row].title)",
                                                director: "\(self.listMovies![indexPath.row].director)",
