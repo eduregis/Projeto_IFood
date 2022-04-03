@@ -14,9 +14,12 @@ struct Movie: Codable {
     let director: String
     let release_date: String
     let image: String
+    let movie_banner: String
     let original_title_romanised: String
 }
 
+// Essa struct usa UserDefaults pra guardar os dados e fazer o app funcionar mesmo sem internet se já tiver sido aberto uma vez com internet.
+// OBS: - Sei que não é uma boa ideia colocar muita coisa no UserDefaults, estou utilizando isso aqui pra mostrar um uso prático, e também porque a API é pequena.
 struct ListMoviesCache {
     
     static let key = "listMoviesCache"

@@ -64,12 +64,19 @@ extension ListMovieViewController: UITableViewDelegate, UITableViewDataSource {
         return self.viewModel.generateCell(for: tableView, indexPath: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(self.viewModel.cellText(index: indexPath.row))
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let movieDetailViewController = MovieDetailViewController()
+        movieDetailViewController.viewModel = MovieDetailViewModel()
+        movieDetailViewController.viewModel.output = movieDetailViewController
+        
+        movieDetailViewController.viewModel.movie = viewModel.listMovies![indexPath.row]
+
+        self.present(movieDetailViewController, animated: true, completion: nil)
     }
 }
 
