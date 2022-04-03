@@ -5,7 +5,7 @@
 //  Created by Eduardo Oliveira on 02/04/22.
 //
 
-import Foundation
+import UIKit
 
 // Nesse protocolo Type vão as chamadas dos métodos da viewModel a serem utilizados pela viewController.
 protocol ListMovieViewModelType {
@@ -15,6 +15,7 @@ protocol ListMovieViewModelType {
     func fetchMovies(searchText: String)
     func numberOfRows() -> Int
     func cellText(index: Int) -> String
+    func generateCell(for tableView: UITableView, indexPath: IndexPath, movieCellDelegate: MovieCellDelegate) -> UITableViewCell
 }
 
 // Nesse protocolo Output vão as chamadas dos métodos da viewController a serem chamados pela viewModel.
@@ -58,6 +59,19 @@ extension ListMovieViewModel: ListMovieViewModelType {
     
     func numberOfRows() -> Int {
         return self.listMovies?.count ?? 0
+    }
+    
+    func generateCell(for tableView: UITableView,
+                      indexPath: IndexPath,
+                      movieCellDelegate: MovieCellDelegate) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.IDENTIFIER) as? MovieCell else { return UITableViewCell() }
+        cell.delegate = movieCellDelegate
+        let viewModel = MovieCellViewModel()
+        viewModel.create(model: MovieCellModel(title: "\(self.listMovies![indexPath.row].title)",
+                                               director: "\(self.listMovies![indexPath.row].director)",
+                                               image: nil))
+        cell.setupValues(with: viewModel)
+        return cell
     }
     
     func cellText(index: Int) -> String {

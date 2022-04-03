@@ -21,7 +21,8 @@ class ListMovieViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        let cellNib = UINib(nibName: MovieCell.IDENTIFIER, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: MovieCell.IDENTIFIER)
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -54,16 +55,26 @@ extension ListMovieViewController: ListMovieViewModelOutput {
     }
 }
 
-extension ListMovieViewController: UITableViewDelegate, UITableViewDataSource {
+extension ListMovieViewController: UITableViewDelegate, UITableViewDataSource, MovieCellDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.numberOfRows()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
-        cell.textLabel?.text = self.viewModel.cellText(index: indexPath.row)
-        return cell
+        return self.viewModel.generateCell(for: tableView, indexPath: indexPath, movieCellDelegate: self)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(self.viewModel.cellText(index: indexPath.row))
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
+    }
+    
+    func movieCellSelected(index: IndexPath?) {
+        print("vapo")
     }
 }
 
