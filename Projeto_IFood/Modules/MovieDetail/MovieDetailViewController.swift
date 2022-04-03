@@ -27,6 +27,7 @@ class MovieDetailViewController: UIViewController {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         title.textColor = .white
+        title.numberOfLines = 0
         self.view.addSubview(title)
         return title
     }()
@@ -41,11 +42,18 @@ class MovieDetailViewController: UIViewController {
         return image
     }()
     
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(scrollView)
+        return scrollView
+    }()
+    
     lazy var posterImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .systemGray2
-        self.view.addSubview(image)
+        self.scrollView.addSubview(image)
         return image
     }()
     
@@ -53,7 +61,7 @@ class MovieDetailViewController: UIViewController {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.font = title.font.withSize(14)
-        self.view.addSubview(title)
+        self.scrollView.addSubview(title)
         return title
     }()
     
@@ -61,7 +69,7 @@ class MovieDetailViewController: UIViewController {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.font = title.font.withSize(14)
-        self.view.addSubview(title)
+        self.scrollView.addSubview(title)
         return title
     }()
     
@@ -69,7 +77,7 @@ class MovieDetailViewController: UIViewController {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.font = title.font.withSize(14)
-        self.view.addSubview(title)
+        self.scrollView.addSubview(title)
         return title
     }()
     
@@ -78,7 +86,7 @@ class MovieDetailViewController: UIViewController {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.font = title.font.withSize(14)
         title.numberOfLines = 0
-        self.view.addSubview(title)
+        self.scrollView.addSubview(title)
         return title
     }()
     
@@ -93,9 +101,14 @@ class MovieDetailViewController: UIViewController {
             titleLabel.leadingAnchor.constraint(equalTo: bannerImage.leadingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: bannerImage.trailingAnchor, constant: -10),
             
-            posterImage.topAnchor.constraint(equalTo: bannerImage.bottomAnchor, constant: 10),
-            posterImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            posterImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            scrollView.topAnchor.constraint(equalTo: bannerImage.bottomAnchor, constant: 10),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            posterImage.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            posterImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            posterImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.5),
             posterImage.heightAnchor.constraint(equalTo: posterImage.widthAnchor, multiplier: 1.5),
             
             directorLabel.topAnchor.constraint(equalTo: posterImage.bottomAnchor, constant: 10),
@@ -113,6 +126,7 @@ class MovieDetailViewController: UIViewController {
             descriptionLabel.topAnchor.constraint(equalTo: originalTitleRomanized.bottomAnchor, constant: 5),
             descriptionLabel.leadingAnchor.constraint(equalTo: originalTitleRomanized.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: originalTitleRomanized.trailingAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -15)
         ])
         
         bannerImage.addOverlay(alpha: 0.5)
