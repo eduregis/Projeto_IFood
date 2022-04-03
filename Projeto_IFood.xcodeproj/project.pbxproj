@@ -139,19 +139,19 @@
 		2EFFF5E227F8E4E20099E11D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				2EFFF5E327F8E6350099E11D /* ListView */,
+				2EFFF5E327F8E6350099E11D /* ListMovie */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		2EFFF5E327F8E6350099E11D /* ListView */ = {
+		2EFFF5E327F8E6350099E11D /* ListMovie */ = {
 			isa = PBXGroup;
 			children = (
 				2EFFF5E427F8E6580099E11D /* ListMovieViewController.swift */,
 				2EFFF5E627F8E6650099E11D /* ListMovieViewModel.swift */,
 				2EFFF5E827F8EF060099E11D /* ListMovieModel.swift */,
 			);
-			path = ListView;
+			path = ListMovie;
 			sourceTree = "<group>";
 		};
 		2EFFF5EA27F8F0160099E11D /* Services */ = {

@@ -32,9 +32,7 @@ class ListMovieViewController: UIViewController {
         self.title = "List"
         
         self.hideKeyboardWhenTappedAround()
-
         configureConstraints()
-    
         viewModel.fetchMovies(searchText: "")
     }
     

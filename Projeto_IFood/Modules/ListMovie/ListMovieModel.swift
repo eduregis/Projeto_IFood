@@ -10,6 +10,11 @@ import Foundation
 struct Movie: Codable {
     let id: String
     let title: String
+    let description: String
+    let director: String
+    let release_date: String
+    let image: String
+    let original_title_romanised: String
 }
 
 struct ListMoviesCache {

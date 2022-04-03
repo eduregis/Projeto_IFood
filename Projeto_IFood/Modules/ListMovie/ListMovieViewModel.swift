@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Nesse protocolo Type vão as chamadas dos métodos da viewModel a serem utilizados pela viewController.
 protocol ListMovieViewModelType {
     var output: ListMovieViewModelOutput? { get set }
     var listMovies: [Movie]? { get set }
@@ -16,6 +17,7 @@ protocol ListMovieViewModelType {
     func cellText(index: Int) -> String
 }
 
+// Nesse protocolo Output vão as chamadas dos métodos da viewController a serem chamados pela viewModel.
 protocol ListMovieViewModelOutput: AnyObject {
     func reloadDisplayData()
 }
