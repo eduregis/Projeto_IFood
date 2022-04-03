@@ -16,7 +16,6 @@ class MovieCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -79,5 +78,6 @@ class MovieCell: UITableViewCell {
     func setupValues(with viewModel: MovieCellViewModel) {
         titleLabel.text = viewModel.model.title
         directorLabel.text = viewModel.model.director
+        posterImage.image = viewModel.model.image
     }
 }
