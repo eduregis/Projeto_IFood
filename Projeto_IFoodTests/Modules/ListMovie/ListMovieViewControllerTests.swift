@@ -45,6 +45,14 @@ class ListMovieViewControllerTests: XCTestCase {
     func testCellForRowAt() throws {
         // Given
         let indexPath = IndexPath(row: 0, section: 0)
+        sut.viewModel.listMovies?.append(Movie(id: "mock",
+                                               title: "mock",
+                                               description: "mock",
+                                               director: "mock",
+                                               release_date: "mock",
+                                               image: "mock",
+                                               movie_banner: "mock",
+                                               original_title_romanised: "mock"))
         // When
         let result = sut.tableView(sut.tableView, cellForRowAt: indexPath)
         // Then

@@ -67,10 +67,12 @@ extension ListMovieViewModel: ListMovieViewModelType {
         }
         let viewModel = MovieCellViewModel()
         let url = URL(string: listMovies![indexPath.row].image)
-        let data = try? Data(contentsOf: url!)
+        guard let data = try? Data(contentsOf: url!) else {
+            return UITableViewCell()
+        }
         viewModel.create(model: MovieCellModel(title: "\(self.listMovies![indexPath.row].title)",
                                                director: "\(self.listMovies![indexPath.row].director)",
-                                               image: UIImage(data: data!)))
+                                               image: UIImage(data: data)))
         cell.setupValues(with: viewModel)
         return cell
     }

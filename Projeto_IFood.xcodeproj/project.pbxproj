@@ -15,6 +15,7 @@
 		2ED9921C27FA5EE20007D937 /* ViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9921B27FA5EE20007D937 /* ViewOverlay.swift */; };
 		2ED9922327FA7F3B0007D937 /* ListMovieViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9922227FA7F3B0007D937 /* ListMovieViewModelTests.swift */; };
 		2ED9922527FA84F30007D937 /* ListMovieViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9922427FA84F30007D937 /* ListMovieViewControllerTests.swift */; };
+		2ED9922827FAA91F0007D937 /* MovieDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9922727FAA91F0007D937 /* MovieDetailViewControllerTests.swift */; };
 		2EFFF5B327F8E4050099E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFFF5B227F8E4050099E11D /* AppDelegate.swift */; };
 		2EFFF5B527F8E4050099E11D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFFF5B427F8E4050099E11D /* SceneDelegate.swift */; };
 		2EFFF5BC27F8E4070099E11D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EFFF5BB27F8E4070099E11D /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		2ED9921B27FA5EE20007D937 /* ViewOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOverlay.swift; sourceTree = "<group>"; };
 		2ED9922227FA7F3B0007D937 /* ListMovieViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieViewModelTests.swift; sourceTree = "<group>"; };
 		2ED9922427FA84F30007D937 /* ListMovieViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieViewControllerTests.swift; sourceTree = "<group>"; };
+		2ED9922727FAA91F0007D937 /* MovieDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		2EFFF5AF27F8E4050099E11D /* Projeto_IFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projeto_IFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFFF5B227F8E4050099E11D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EFFF5B427F8E4050099E11D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		2ED9921D27FA767A0007D937 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2ED9922627FAA6ED0007D937 /* MovieDetail */,
 				2ED9922127FA7F1D0007D937 /* ListMovie */,
 			);
 			path = Modules;
@@ -134,6 +137,14 @@
 				2ED9922427FA84F30007D937 /* ListMovieViewControllerTests.swift */,
 			);
 			path = ListMovie;
+			sourceTree = "<group>";
+		};
+		2ED9922627FAA6ED0007D937 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2ED9922727FAA91F0007D937 /* MovieDetailViewControllerTests.swift */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 		2EFFF5A627F8E4050099E11D = {
@@ -378,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ED9922827FAA91F0007D937 /* MovieDetailViewControllerTests.swift in Sources */,
 				2ED9922527FA84F30007D937 /* ListMovieViewControllerTests.swift in Sources */,
 				2EFFF5CA27F8E4070099E11D /* Projeto_IFoodTests.swift in Sources */,
 				2ED9922327FA7F3B0007D937 /* ListMovieViewModelTests.swift in Sources */,
