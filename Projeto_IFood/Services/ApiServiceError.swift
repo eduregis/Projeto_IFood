@@ -10,6 +10,7 @@ import Foundation
 import Network
 
 enum ApiServiceError: Error {
+    // Enum com alguns casos de erro.
     case invalidUrl
     case noInternetConnection
     case decodingError
@@ -18,6 +19,7 @@ enum ApiServiceError: Error {
 }
 
 class NetworkMonitor {
+    // classe para monitorar a conexão com a internet.
   static let shared = NetworkMonitor()
   var isReachable: Bool { status == .satisfied }
 

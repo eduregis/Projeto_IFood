@@ -36,6 +36,8 @@ class ListMovieViewController: UIViewController {
         viewModel.fetchMovies(searchText: "")
     }
     
+    // MARK: - Componentes da tela
+    
     lazy var indicator: UIActivityIndicatorView = {
         var indicator = UIActivityIndicatorView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +45,8 @@ class ListMovieViewController: UIViewController {
         self.view.addSubview(indicator)
         return indicator
     }()
+    
+    // MARK: - Manipulando a UI
     
     func configureConstraints() {
         tableView.contentOffset = CGPoint(x: -18, y: -18)
@@ -61,7 +65,17 @@ class ListMovieViewController: UIViewController {
     }
 }
 
+// MARK: - Métodos do output
+
 extension ListMovieViewController: ListMovieViewModelOutput {
+    func alertErrorTrigger() {
+        DispatchQueue.main.async {
+            AlertHelper.defaultAlert(over: self, title: "Failed to load",
+                                     message: "Movie list cannot be loaded",
+                                     defaultActionTitle: "Ok")
+        }
+    }
+    
     func reloadDisplayData() {
         if indicator.isHidden == false {
             indicator.isHidden = true
@@ -69,6 +83,8 @@ extension ListMovieViewController: ListMovieViewModelOutput {
         tableView.reloadData()
     }
 }
+
+// MARK: - Métodos da table view
 
 extension ListMovieViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -95,6 +111,8 @@ extension ListMovieViewController: UITableViewDelegate, UITableViewDataSource {
         self.present(movieDetailViewController, animated: true, completion: nil)
     }
 }
+
+// MARK: - Métodos da searchController
 
 extension ListMovieViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {

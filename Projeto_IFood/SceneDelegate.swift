@@ -21,16 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navListView.viewControllers = [listView]
         navListView.title = "List"
         
-//        let converterView = ConverterViewController()
-//        converterView.viewModel = ConverterViewModel()
-//        converterView.viewModel.output = converterView
-//        let navConverterView = UINavigationController()
-//        navConverterView.viewControllers = [converterView]
-//        navConverterView.title = "Converter"
-        
         let tabbarController = UITabBarController()
         tabbarController.setViewControllers([navListView], animated: false)
-//        tabbarController.setViewControllers([navListView, navConverterView], animated: false)
         tabbarController.tabBar.tintColor = .systemMint
         tabbarController.tabBar.isTranslucent = true
         

@@ -27,6 +27,8 @@ class MovieCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Componentes da tela
+    
     lazy var titleLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -51,6 +53,8 @@ class MovieCell: UITableViewCell {
         self.addSubview(image)
         return image
     }()
+    
+    // MARK: - Manipulando a UI
 
     func configureConstraints() {
         NSLayoutConstraint.activate([

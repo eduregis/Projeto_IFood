@@ -22,6 +22,8 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
+    // MARK: - Componentes da tela
+    
     lazy var titleLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +91,8 @@ class MovieDetailViewController: UIViewController {
         self.scrollView.addSubview(title)
         return title
     }()
+    
+    // MARK: - Manipulando a UI
     
     func configureConstraints() {
         NSLayoutConstraint.activate([

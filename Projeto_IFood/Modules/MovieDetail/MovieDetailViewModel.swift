@@ -18,7 +18,7 @@ protocol MovieDetailViewModelType {
 
 // Nesse protocolo Output vão as chamadas dos métodos da viewController a serem chamados pela viewModel.
 protocol MovieDetailViewModelOutput: AnyObject {
-
+    //
 }
 
 final class MovieDetailViewModel {
@@ -37,6 +37,7 @@ final class MovieDetailViewModel {
         return UIImage(data: data)
     }
     
+    // Essa função atribui pesos diferentes para pedaços de uma mesma String.
     func movieDetails(str1: String, str2: String) -> NSMutableAttributedString {
         let dateText = NSMutableAttributedString.init(string: "\(str1)\(str2)")
             dateText.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)],

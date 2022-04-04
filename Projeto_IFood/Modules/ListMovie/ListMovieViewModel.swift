@@ -20,6 +20,7 @@ protocol ListMovieViewModelType {
 // Nesse protocolo Output vão as chamadas dos métodos da viewController a serem chamados pela viewModel.
 protocol ListMovieViewModelOutput: AnyObject {
     func reloadDisplayData()
+    func alertErrorTrigger()
 }
 
 final class ListMovieViewModel {
@@ -36,10 +37,12 @@ final class ListMovieViewModel {
 extension ListMovieViewModel: ListMovieViewModelType {
     
     func fetchMovies(searchText: String) {
+        // Tratamos aqui os resultados do me1todo que chama a API, seja esse resultado uma lista de filmes, ou um erro.
         self.getListMovies { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let listMovies):
+                // Caso tenhamos sucesso, ordenamos e até filtramos a lista se tiver algum texto na searchController.
                 self.listMovies = listMovies.sorted(by: { $0.title < $1.title })
                 self.listMovies = listMovies
                 if searchText != "" {
@@ -47,11 +50,13 @@ extension ListMovieViewModel: ListMovieViewModelType {
                         return (movie.title.uppercased().contains(searchText.uppercased()))
                     }
                 }
+                // Usamos o output aqui para chamarmos a função reload presente na controller.
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.output?.reloadDisplayData()
                 }
-            case .failure: break
+            case .failure:
+                self.output?.alertErrorTrigger()
             }
         }
     }
@@ -78,6 +83,7 @@ extension ListMovieViewModel: ListMovieViewModelType {
     }
     
     func getListMovies(completion: @escaping (Result<[Movie], ApiServiceError>) -> Void) {
+        // Usamos a instância da classe manipuladora de API pra recuperar uma lista de filmes.
         repository.getListMovies { response in
             switch response {
             case .success(let listMovies):
@@ -86,7 +92,7 @@ extension ListMovieViewModel: ListMovieViewModelType {
                     movies.append(movie)
                 }
                 completion(.success(movies))
-                
+            // Caso não consigamos, retornamos um erro.
             case .failure(let error):
                 completion(.failure(error))
             }

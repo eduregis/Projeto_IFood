@@ -16,6 +16,7 @@
 		2ED9922327FA7F3B0007D937 /* ListMovieViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9922227FA7F3B0007D937 /* ListMovieViewModelTests.swift */; };
 		2ED9922527FA84F30007D937 /* ListMovieViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9922427FA84F30007D937 /* ListMovieViewControllerTests.swift */; };
 		2ED9922827FAA91F0007D937 /* MovieDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9922727FAA91F0007D937 /* MovieDetailViewControllerTests.swift */; };
+		2ED9922B27FB22B90007D937 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9922A27FB22B90007D937 /* AlertHelper.swift */; };
 		2EFFF5B327F8E4050099E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFFF5B227F8E4050099E11D /* AppDelegate.swift */; };
 		2EFFF5B527F8E4050099E11D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFFF5B427F8E4050099E11D /* SceneDelegate.swift */; };
 		2EFFF5BC27F8E4070099E11D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EFFF5BB27F8E4070099E11D /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		2ED9922227FA7F3B0007D937 /* ListMovieViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieViewModelTests.swift; sourceTree = "<group>"; };
 		2ED9922427FA84F30007D937 /* ListMovieViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieViewControllerTests.swift; sourceTree = "<group>"; };
 		2ED9922727FAA91F0007D937 /* MovieDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		2ED9922A27FB22B90007D937 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		2EFFF5AF27F8E4050099E11D /* Projeto_IFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projeto_IFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFFF5B227F8E4050099E11D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EFFF5B427F8E4050099E11D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 			path = MovieDetail;
 			sourceTree = "<group>";
 		};
+		2ED9922927FB229B0007D937 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2ED9922A27FB22B90007D937 /* AlertHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		2EFFF5A627F8E4050099E11D = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		2EFFF5B127F8E4050099E11D /* Projeto_IFood */ = {
 			isa = PBXGroup;
 			children = (
+				2ED9922927FB229B0007D937 /* Helpers */,
 				2EFFF5EF27F8F1120099E11D /* Extensions */,
 				2EFFF5EA27F8F0160099E11D /* Services */,
 				2EFFF5E227F8E4E20099E11D /* Modules */,
@@ -371,6 +382,7 @@
 				2EFFF5E527F8E6580099E11D /* ListMovieViewController.swift in Sources */,
 				2EFFF5B327F8E4050099E11D /* AppDelegate.swift in Sources */,
 				2ED9921027FA1A4B0007D937 /* MovieCell.swift in Sources */,
+				2ED9922B27FB22B90007D937 /* AlertHelper.swift in Sources */,
 				2ED9921227FA1EEB0007D937 /* MovieCellViewModel.swift in Sources */,
 				2ED9921827FA46BD0007D937 /* MovieDetailViewController.swift in Sources */,
 				2ED9921A27FA47770007D937 /* MovieDetailViewModel.swift in Sources */,
