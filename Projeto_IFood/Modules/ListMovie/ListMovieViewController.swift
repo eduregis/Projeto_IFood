@@ -36,20 +36,36 @@ class ListMovieViewController: UIViewController {
         viewModel.fetchMovies(searchText: "")
     }
     
+    lazy var indicator: UIActivityIndicatorView = {
+        var indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.layer.zPosition = 2
+        self.view.addSubview(indicator)
+        return indicator
+    }()
+    
     func configureConstraints() {
         tableView.contentOffset = CGPoint(x: -18, y: -18)
+        tableView.layer.zPosition = 1
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+        indicator.startAnimating()
     }
 }
 
 extension ListMovieViewController: ListMovieViewModelOutput {
     func reloadDisplayData() {
+        if indicator.isHidden == false {
+            indicator.isHidden = true
+        }
         tableView.reloadData()
     }
 }
