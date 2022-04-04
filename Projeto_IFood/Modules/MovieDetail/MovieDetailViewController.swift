@@ -75,10 +75,20 @@ class MovieDetailViewController: UIViewController {
         return title
     }()
     
+    lazy var originalTitle: UILabel = {
+        let title = UILabel()
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.font = title.font.withSize(14)
+        title.numberOfLines = 0
+        self.scrollView.addSubview(title)
+        return title
+    }()
+    
     lazy var originalTitleRomanized: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.font = title.font.withSize(14)
+        title.numberOfLines = 0
         self.scrollView.addSubview(title)
         return title
     }()
@@ -123,9 +133,13 @@ class MovieDetailViewController: UIViewController {
             releaseDateLabel.leadingAnchor.constraint(equalTo: directorLabel.leadingAnchor),
             releaseDateLabel.trailingAnchor.constraint(equalTo: directorLabel.trailingAnchor),
             
-            originalTitleRomanized.topAnchor.constraint(equalTo: releaseDateLabel.bottomAnchor, constant: 5),
-            originalTitleRomanized.leadingAnchor.constraint(equalTo: releaseDateLabel.leadingAnchor),
-            originalTitleRomanized.trailingAnchor.constraint(equalTo: releaseDateLabel.trailingAnchor),
+            originalTitle.topAnchor.constraint(equalTo: releaseDateLabel.bottomAnchor, constant: 5),
+            originalTitle.leadingAnchor.constraint(equalTo: releaseDateLabel.leadingAnchor),
+            originalTitle.trailingAnchor.constraint(equalTo: releaseDateLabel.trailingAnchor),
+            
+            originalTitleRomanized.topAnchor.constraint(equalTo: originalTitle.bottomAnchor, constant: 5),
+            originalTitleRomanized.leadingAnchor.constraint(equalTo: originalTitle.leadingAnchor),
+            originalTitleRomanized.trailingAnchor.constraint(equalTo: originalTitle.trailingAnchor),
             
             descriptionLabel.topAnchor.constraint(equalTo: originalTitleRomanized.bottomAnchor, constant: 5),
             descriptionLabel.leadingAnchor.constraint(equalTo: originalTitleRomanized.leadingAnchor),
@@ -142,6 +156,7 @@ class MovieDetailViewController: UIViewController {
         bannerImage.image = viewModel.imageByURL(urlString: movie.movie_banner)
         posterImage.image = viewModel.imageByURL(urlString: movie.image)
         releaseDateLabel.attributedText = viewModel.movieDetails(str1: "Release Date: ", str2: movie.release_date)
+        originalTitle.attributedText = viewModel.movieDetails(str1: "Original Title (JAP): ", str2: movie.original_title)
         originalTitleRomanized.attributedText = viewModel.movieDetails(str1: "Original Title: ", str2: movie.original_title_romanised)
         descriptionLabel.attributedText = viewModel.movieDetails(str1: "Description: ", str2: movie.description)
     }

@@ -32,6 +32,7 @@ class MovieDetailViewControllerTests: XCTestCase {
                           release_date: "mock",
                           image: "mock",
                           movie_banner: "mock",
+                          original_title: "mock",
                           original_title_romanised: "mock")
         // When
         sut.setupUI(movie: movie)
