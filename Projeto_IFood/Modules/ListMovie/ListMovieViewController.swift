@@ -101,7 +101,6 @@ extension ListMovieViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let movieDetailViewController = MovieDetailViewController()
         movieDetailViewController.viewModel = MovieDetailViewModel()
         movieDetailViewController.viewModel.output = movieDetailViewController
@@ -109,6 +108,7 @@ extension ListMovieViewController: UITableViewDelegate, UITableViewDataSource {
         movieDetailViewController.viewModel.movie = viewModel.listMovies![indexPath.row]
 
         self.present(movieDetailViewController, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
