@@ -35,6 +35,7 @@ class ListMovieViewControllerTests: XCTestCase {
                                                release_date: "mock",
                                                image: "mock",
                                                movie_banner: "mock",
+                                               original_title: "mock",
                                                original_title_romanised: "mock"))
         // When
         let result = sut.tableView(sut.tableView, numberOfRowsInSection: indexPath.section)
@@ -52,6 +53,7 @@ class ListMovieViewControllerTests: XCTestCase {
                                                release_date: "mock",
                                                image: "mock",
                                                movie_banner: "mock",
+                                               original_title: "mock",
                                                original_title_romanised: "mock"))
         // When
         let result = sut.tableView(sut.tableView, cellForRowAt: indexPath)
@@ -79,6 +81,7 @@ class ListMovieViewControllerTests: XCTestCase {
                                                release_date: "mock",
                                                image: "mock",
                                                movie_banner: "mock",
+                                               original_title: "mock",
                                                original_title_romanised: "mock"))
         // When
         sut.tableView(sut.tableView, didSelectRowAt: indexPath)
