@@ -47,7 +47,7 @@ class MovieCell: UITableViewCell {
     lazy var posterImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .systemGray2
+        image.backgroundColor = .systemGray
         self.addSubview(image)
         return image
     }()
@@ -63,7 +63,7 @@ class MovieCell: UITableViewCell {
             titleLabel.topAnchor.constraint(equalTo: posterImage.topAnchor, constant: 5.0),
             
             directorLabel.leadingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: 15.0),
-            directorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5.0),
+            directorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
         ])
     }
     

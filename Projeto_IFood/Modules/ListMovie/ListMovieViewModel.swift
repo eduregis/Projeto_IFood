@@ -14,7 +14,6 @@ protocol ListMovieViewModelType {
     
     func fetchMovies(searchText: String)
     func numberOfRows() -> Int
-    func cellText(index: Int) -> String
     func generateCell(for tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
 }
 
@@ -74,10 +73,6 @@ extension ListMovieViewModel: ListMovieViewModelType {
                                                image: UIImage(data: data!)))
         cell.setupValues(with: viewModel)
         return cell
-    }
-    
-    func cellText(index: Int) -> String {
-        return "\(self.listMovies![index].title)"
     }
     
     func getListMovies(completion: @escaping (Result<[Movie], ApiServiceError>) -> Void) {
