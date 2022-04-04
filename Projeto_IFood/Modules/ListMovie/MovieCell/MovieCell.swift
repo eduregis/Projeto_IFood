@@ -40,7 +40,7 @@ class MovieCell: UITableViewCell {
     lazy var directorLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.textColor = .systemGray2
+        title.textColor = .systemGray
         title.font = title.font.withSize(14)
         self.addSubview(title)
         return title
@@ -64,9 +64,11 @@ class MovieCell: UITableViewCell {
             posterImage.heightAnchor.constraint(equalTo: posterImage.widthAnchor, multiplier: 1.5),
             
             titleLabel.leadingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: 15.0),
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0),
             titleLabel.topAnchor.constraint(equalTo: posterImage.topAnchor, constant: 5.0),
             
             directorLabel.leadingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: 15.0),
+            directorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0),
             directorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
         ])
     }
