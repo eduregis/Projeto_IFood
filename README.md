@@ -1,8 +1,9 @@
 # Projeto_IFood
 Projeto feito para desenvolver uma nova aplicação simples de tema à meu critério, para a avaliação técnica do IFood. Para o projeto, escolhi uma das sugestões dadas de fazer uma listagem de filmes consumindo uma API. Escolhi a GhibliApi, que possui informações sobre todos os filmes de animação produzidos pelo Studio Ghibli.
 
-![60](https://user-images.githubusercontent.com/26663780/161566719-059676c8-dea9-441e-8e51-8443d674f6d6.png)
-[Ícone baseado no personagem Totoro, do filme Meu vizinho Totoro, do Studio Ghibli. O ícone foi feito por mim mesmo]
+![144](https://user-images.githubusercontent.com/26663780/161567332-4f5b3b19-4939-4529-b2f3-b57e7e7123d5.png)
+
+###### [Ícone baseado no personagem Totoro, do filme Meu vizinho Totoro, do Studio Ghibli. O ícone foi feito por mim mesmo] <h6> 
 
 ### Descrição da aplicação
 
